@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta http-equiv="Content-Language" content="zh-tw" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+    <title></title>
+
+    <meta name="robots" content="index,follow" />
+
+    <meta name="author" content="吳政賢(OA Wu)" />
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+
+    <meta property="fb:admins" content="100000100541088" />
+    <meta property="fb:app_id" content="640377126095413" />
+
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta property="og:type" content="city" />
+    <meta property="og:image" content="" alt="" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+
+  </head>
+  <body lang="zh-tw">
+    <header>
+      <div>
+        <a class='icon-menu'></a>
+        <a class='icon-pin-alt' href='index.html'>標記叢集</a>
+        <a class='icon-chat-3' href='about.html'>介紹說明</a>
+        <a class='icon-embed2 a' href='sample.html'>程式範例</a>
+        <span></span>
+        <span>
+          <a class='icon-share' id='share' title='分享至 Facebook'></a>
+          <a href='http://www.ioa.tw/' class='icon-user' title='網站作者' target='_blank'></a>
+        </span>
+      </div>
+    </header>
+
+    <div id='container' class='about'>
+
+
+      <article>
+        <header>
+          <h1><a href='http://works.ioa.tw/OA-markerClustering/'>Marker Clustering 程式示範</a>
+            <div class='fb-like' data-href='http://works.ioa.tw/OA-markerClustering/' data-send='false' data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
+          </h1>
+          <span><p>JavaScript • Coding</p><div class='fb-like' data-href='http://works.ioa.tw/OA-markerClustering/' data-send='false' data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div></span>
+        </header>
+        <section>
+
+          <p>因為是要配合 Google Maps JavaScript API 使用的 Library，所以就寫在 <b>google.maps.event.addDomListener (window, 'load', function () {});</b> 內較為保險。首先新增 OAMarkerClustering 物件，並且給予 Maps 物件，以及相關設定，範例如下：</p>
+<pre>
+// 宣告初始地圖
+var maps = new google.maps.Map ($('#maps').get (0), {
+  zoom: 8,
+  center: new google.maps.LatLng (23.8, 120.8)
+});
+
+// 宣告 OAMarkerClustering 物件
+var cluster = new OAMarkerClustering ({
+  maps: maps,
+  type: 'moveRun' // 分別有 moveRun、runAll
+}</pre>
+          <br/>
+
+          <p>接著設定各個點的資訊，這邊有兩種方式提供，分別是 <b>google.maps.LatLng 物件陣列</b>、<b>二維坐標陣列</b>，其分別可以用 setLatLngs、setArrays 去做設定，範例如下：</p>
+<pre>
+// 四個 Demo 點
+var points = [[21.899171, 120.854535], [21.905981, 120.852092], [21.922511, 120.738746]];
+
+// 轉換成 google.maps.LatLng 物件陣列
+var latLngs = points.map (function (t) {
+  return new google.maps.LatLng (t[0], t[1]);
+});
+
+// 設置所有點
+cluster.setLatLngs (latLngs);
+
+// 使用 二維坐標陣列 的話可以使用 setArrays，如下：
+// cluster.setArrays (points);</pre>
+          <br/>
+
+          <p>最後分別設定 <b>單點 Marker</b> 與 <b>集合 Marker</b> 要顯示的物件風格，單點 Marker 使用 setMarker，集合 Marker 使用 setClusteringMarker，其方式主要是利用回傳 Callback 結果來取得 google.maps.Marker 物件。</p>
+          <p>在 <b>setMarker</b> 的第一個參數代表該點的資訊，使用 setLatLngs 的話，則第一個參數就為該點 google.maps.LatLng 資訊，反之若是使用 setArrays，則第一參數就為 坐標陣列。而 <b>setClusteringMarker</b> 第一參數比照 setMarker 的規則，而第二參數就是此 集合 Marker 的 單點 Marker 數量！範例如下：</p>
+
+<pre>
+cluster.setClusteringMarker (function (e, count) {
+  // 設置 集合 Marker 集合樣式，第一個參數為該點資訊，第二個參數為集合了多少點
+
+  // 利用 MarkerWithLabel 來作為 集合 Marker 的顯示
+  return new MarkerWithLabel ({
+      map: maps,
+      position: e,
+      labelContent: count,
+      labelAnchor: new google.maps.Point (40 / 2, 40 / 2),
+      labelClass: 'clustering',
+      icon: {path: 'M 0 0'},
+    });
+});
+
+cluster.setMarker (function (e) {
+  // 設置 單個 Marker 樣式，第一個參數為該點資訊
+  
+  return new google.maps.Marker ({
+      map: maps,
+      position: e,
+    });
+});</pre>
+        </section>
+      </article>
+
+
+      <div id='comments'>
+        <h3 title='留言討論區'></h3>
+        <div class="fb-comments" data-order-by='reverse_time' width='100%' data-href="http://works.ioa.tw/OA-markerClustering/" data-numposts="5"></div>
+      </div>
+    </div>
+
+    <aside>
+      <header>
+        <span>OA's</span>
+        <span>Marker Clustering</span>
+      </header>
+
+      <span>主要功能</span>
+      <ul>
+        <li><a class='icon-pin-alt' href='index.html'>標記叢集</a></li>
+        <li><a class='icon-chat-3' href='about.html'>介紹說明</a></li>
+        <li><a class='icon-embed2' href='sample.html'>程式範例</a></li>
+      </ul>
+
+      <span>其他功能</span>
+      <ul>
+        <li><a class='icon-user' href='http://www.ioa.tw/' target='_blank'>開發人員</a></li>
+        <li><a class='icon-github' href='https://github.com/comdan66/OA-markerClustering/' target='_blank'>GitHub</a></li>
+      </ul>
+    </aside>
+    <div class='cover'></div>
+
+
+    <footer>
+      <div></div>
+      <div>
+        <div>OA's Marker Clustering ©2016</div>
+        <div>如有相關問題歡迎與<a href="http://www.ioa.tw/" target="_blank">作者</a>討論。</div>
+      </div>
+      <div></div>
+    </footer>
+
+    <div id='fb-root'></div>
+  </body>
+</html>

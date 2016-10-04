@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta http-equiv="Content-Language" content="zh-tw" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+    <title></title>
+
+    <meta name="robots" content="index,follow" />
+
+    <meta name="author" content="吳政賢(OA Wu)" />
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+
+    <meta property="fb:admins" content="100000100541088" />
+    <meta property="fb:app_id" content="640377126095413" />
+
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta property="og:type" content="city" />
+    <meta property="og:image" content="" alt="" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link href="css/public.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=zh-TW" language="javascript" type="text/javascript" ></script>
+    <script src="js/OAMarkerClustering.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/about.js" language="javascript" type="text/javascript" ></script>
+
+  </head>
+  <body lang="zh-tw">
+    <header>
+      <div>
+        <a class='icon-menu'></a>
+        <a class='icon-pin-alt' href='index.html'>標記叢集</a>
+        <a class='icon-chat-3 a' href='about.html'>介紹說明</a>
+        <a class='icon-embed2' href='sample.html'>程式範例</a>
+        <span></span>
+        <span>
+          <a class='icon-share' id='share' title='分享至 Facebook'></a>
+          <a href='http://www.ioa.tw/' class='icon-user' title='網站作者' target='_blank'></a>
+        </span>
+      </div>
+    </header>
+
+    <div id='container' class='about'>
+      <article>
+        <header>
+          <h1><a href='http://works.ioa.tw/OA-markerClustering/'>OA's Marker Clustering！</a>
+            <div class='fb-like' data-href='http://works.ioa.tw/OA-markerClustering/' data-send='false' data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
+          </h1>
+          <span><p>OA Wu 的個人 Marker Clustering 實作</p><div class='fb-like' data-href='http://works.ioa.tw/OA-markerClustering/' data-send='false' data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div></span>
+        </header>
+        <section>
+          <p>各位 Google Maps JavaScript API 的玩家都應該有過 Marker 太多時，當 Maps 視角一拉遠時，全部 Marker 擠在一起的困擾吧！沒錯 OA's Marker Clustering 就是要來處理這個困擾！</p>
+          <p>或許你/妳會問，市面上也有很多關於 Marker Clustering 的 Library，那又何必自己時做一套呢！？原因很簡單，因為自己做的比較能夠掌握概況，是需求去做挑整，不用一大包的 code，到底怎麼跑的都摸不透，並且加以利用做出自己想要的功能！</p>
+          <p>如果試著 Google 關於 Marker Clustering 的文章都會找到 <a href='https://developers.google.com/maps/documentation/javascript/marker-clustering' target='_blank'>Marker Clustering</a> 此篇，而官網上也都推崇 <a href='https://github.com/googlemaps/js-marker-clusterer' target='_blank'>這套</a> Library，這套我也開發過，甚至改過其功能，但是最後我還是自己刻了屬於自己的 <a href='http://works.ioa.tw/OA-markerClustering/' target='_blank'>Marker Clustering</a> 來制定當不同的 集合 Marker 時可以使用不同呈現方式！以下就是一些功能介紹、演算方法說明。</p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+          <h2>作品分享</h2>
+          <span>取之於網路 • 分享於網路</span>
+        </header>
+        <section>
+          <ul>
+            <li>GitHub：<a href='https://github.com/comdan66/OA-markerClustering/' target='_blank'>https://github.com/comdan66/OA-markerClustering/</a></li>
+            <li>Demo：<a href='http://works.ioa.tw/OA-markerClustering/' target='_blank'>http://works.ioa.tw/OA-markerClustering/</a></li>
+            <li>更多作品：<a href='http://www.ioa.tw/' target='_blank'>http://www.ioa.tw/</a></li>
+          </ul>
+        </section>
+      </article>
+
+      <article>
+        <header>
+          <h2>授權聲明</h2>
+          <span>使用授權 • 責任聲明</span>
+        </header>
+        <section>
+          <ul>
+            <li>本作品授權採用<b>姓名標示-非商業性 2.0 台灣 (CC BY-NC 2.0 TW) 授權</b>，詳見 <a href='http://creativecommons.org/licenses/by-nc/2.0/tw/' target='_blank'>http://creativecommons.org/licenses/by-nc/2.0/tw/</a></li>
+          </ul>
+        </section>
+      </article>
+
+      <article>
+        <header>
+          <h2>概略方法</h2>
+          <span>演算法 • SAMPLE</span>
+        </header>
+        <section>
+          <p><a href='http://works.ioa.tw/OA-markerClustering/' target='_blank'>OA's Marker Clustering</a> 主要規則就是利用 Google Maps 在不同的放大視角(以下以 zoom 代稱)時產生 <b>集合 Marker</b>，而這些 Marker 用來代表著是多數 Marker 集合。如下圖 1 是 zoom 為 16 時的狀況圖，地圖上分別有 A、B 以及 C 三個點，而圖 2 代表在 zoom 為 13 時，因為地圖視角拉遠了，所以造成 A 與 B 互相太靠近，所以必須隱藏 B 只顯示 A，所以作法如圖 3，產生一個 集合 Marker 放置在 A 的位置，並且記錄著數量為 2。</p>
+          
+          <div class='pictures n3'>
+            <figure href='https://github.com/comdan66/OA-markerClustering/about.html#&gid=1&pid=0&id=0'>
+              <img alt="地圖 zoom 為 16 時的狀況圖" src='img/about/01.png' />
+              <figcaption data-description='zoom 為 16 時的狀況圖，地圖上分別有 A、B 以及 C 三個點。'>圖 1. 地圖 zoom 為 16 時的狀況圖</figcaption>
+            </figure>
+            <figure href='https://github.com/comdan66/OA-markerClustering/about.html#&gid=1&pid=1&id=0'>
+              <img alt="地圖 zoom 為 13 時 A、B 靠太近" src='img/about/02.png' />
+              <figcaption data-description='地圖視角 zoom 為 13 時，因為視角拉遠所以造成 A 與 B 互相太靠近。'>圖 2. 地圖 zoom 為 13 時 A、B 靠太近</figcaption>
+            </figure>
+            <figure href='https://github.com/comdan66/OA-markerClustering/about.html#&gid=1&pid=2&id=0'>
+              <img alt="因靠太近，故隱藏 B 只顯示 A" src='img/about/03.png' />
+              <figcaption data-description='因靠太近，故隱藏 B 只顯示 A，產生一個 集合 Marker 放置在 A 的位置，並且記錄著數量為 2。'>圖 3. 因靠太近，故隱藏 B 只顯示 A</figcaption>
+            </figure>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+        </section>
+      </article>
+
+      <article>
+        <header>
+          <h2>功能介紹</h2>
+          <span>FEATURE • LIVE DEMO</span>
+        </header>
+        <section>
+
+          <p>這次的 <a href='http://works.ioa.tw/OA-markerClustering/' target='_blank'>OA's Marker Clustering</a> 中，我拆出兩種 Type，分別是 <b>moveRun</b>、<b>runAll</b>，其兩者在地圖上的呈現結果差不多，但方法是不一樣的。前者 moveRun 是當地圖移動完後(idle Listener)，先取得地圖的範圍座標(<a href='https://developers.google.com/maps/documentation/javascript/reference' target='_blank'>Bounds</a>)，在塞選(filter)出地圖範圍內的座標點，再依照這些座標點去製作各個 集合 Marker。而後者的 runAll 型態則是當一開始新增玩所有點之後，立即運算出當地圖在各個 zoom 分別的 集合 Marker，當地圖 zoom 大小改變時，則可以立即得找出該 zoom 下的 集合 Marker 顯示。</p>
+          <p>Type moveRun 當地圖移動時，會重新針對範圍內做計算再合併出 集合 Marker，所以會移除舊的在上新的，整體初始速度較快，但當地圖移動時會有閃娑狀況，反之 runAll 因為開始先算出所有不同 zoom 時要顯示的結果，所以當地圖移動(平滑非放大)時，因為不用移除舊的，所以不會有閃爍狀況發生，但初始速度較慢。以下就是兩者不同 type 的 Demo。</p>
+
+          <div id='maps'>
+            <div>
+              <div id='maps1' class='maps'></div>
+              <h2>Type：moveRun</h2>
+            </div>
+            <div>
+              <div id='maps2' class='maps'></div>
+              <h2>Type：runAll</h2>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+        </section>
+      </article>
+
+      <div id='comments'>
+        <h3 title='留言討論區'></h3>
+        <div class="fb-comments" data-order-by='reverse_time' width='100%' data-href="http://works.ioa.tw/OA-markerClustering/" data-numposts="5"></div>
+      </div>
+    </div>
+
+    <aside>
+      <header>
+        <span>OA's</span>
+        <span>Marker Clustering</span>
+      </header>
+
+      <span>主要功能</span>
+      <ul>
+        <li><a class='icon-pin-alt' href='index.html'>標記叢集</a></li>
+        <li><a class='icon-chat-3' href='about.html'>介紹說明</a></li>
+        <li><a class='icon-embed2' href='sample.html'>程式範例</a></li>
+      </ul>
+
+      <span>其他功能</span>
+      <ul>
+        <li><a class='icon-user' href='http://www.ioa.tw/' target='_blank'>開發人員</a></li>
+        <li><a class='icon-github' href='https://github.com/comdan66/OA-markerClustering/' target='_blank'>GitHub</a></li>
+      </ul>
+    </aside>
+    <div class='cover'></div>
+
+
+    <footer>
+      <div></div>
+      <div>
+        <div>OA's Marker Clustering ©2016</div>
+        <div>如有相關問題歡迎與<a href="http://www.ioa.tw/" target="_blank">作者</a>討論。</div>
+      </div>
+      <div></div>
+    </footer>
+
+    <div id='fb-root'></div>
+  </body>
+</html>

@@ -32,11 +32,61 @@
 
     <link href="css/public.css" rel="stylesheet" type="text/css" />
 
-    <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=zh-TW" language="javascript" type="text/javascript" ></script>
+    <script src="js/OAMarkerClustering.js" language="javascript" type="text/javascript" ></script>
     <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/index.js" language="javascript" type="text/javascript" ></script>
 
   </head>
-  <body lang="zh-tw">
+  <body lang="zh-tw" class='maps'>
+    <header>
+      <div>
+        <a class='icon-menu'></a>
+        <a class='icon-pin-alt a' href='index.html'>標記叢集</a>
+        <a class='icon-chat-3' href='about.html'>介紹說明</a>
+        <a class='icon-embed2' href='sample.html'>程式範例</a>
+        <span></span>
+        <span>
+          <a class='icon-share' id='share' title='分享至 Facebook'></a>
+          <a href='http://www.ioa.tw/' class='icon-user' title='網站作者' target='_blank'></a>
+        </span>
+      </div>
+    </header>
 
+    <div id='main_maps'></div>
+
+    <div class='fb-like' data-href='http://works.ioa.tw/OA-markerClustering/' data-send='false' data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
+    <a id='show_comment'>顯示留言</a>
+
+    <div id='maps_comments_panel'>
+      <div class='cover'></div>
+      <div class='wrapper'>
+        <div><div class="fb-comments" data-order-by='reverse_time' width='100%' data-href="http://works.ioa.tw/OA-markerClustering/" data-numposts="5"></div></div>
+        <a>關閉</a>
+      </div>
+    </div>
+    
+    <aside>
+      <header>
+        <span>OA's</span>
+        <span>Marker Clustering</span>
+      </header>
+
+      <span>主要功能</span>
+      <ul>
+        <li><a class='icon-pin-alt' href='index.html'>標記叢集</a></li>
+        <li><a class='icon-chat-3' href='about.html'>介紹說明</a></li>
+        <li><a class='icon-embed2' href='sample.html'>程式範例</a></li>
+      </ul>
+
+      <span>其他功能</span>
+      <ul>
+        <li><a class='icon-user' href='http://www.ioa.tw/' target='_blank'>開發人員</a></li>
+        <li><a class='icon-github' href='https://github.com/comdan66/OA-markerClustering/' target='_blank'>GitHub</a></li>
+      </ul>
+    </aside>
+    <div class='cover'></div>
+
+    <div id='fb-root'></div>
   </body>
 </html>
