@@ -5,35 +5,42 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
 
-    <title></title>
+    <title>介紹說明 - OA's Marker Clustering</title>
 
     <meta name="robots" content="index,follow" />
-
     <meta name="author" content="吳政賢(OA Wu)" />
 
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
+    <meta name="keywords" content="Marker Clustering, iOS, Google Maps" />
+    <meta name="description" content="各位 Google 地圖玩家都應該有過當 Marker 太多時，視角一拉遠後全部 Marker 擠在一起的困擾吧！沒錯 OA's Marker Clustering 就是要來處理這個困擾！網路上也有很多關於 Marker Clustering 的 Library，但想要比較能夠掌握概況以及視需求去做調整功能，所以刻了一套可以自訂 Marker Clustering 的地圖工具。" />
+    <meta property="og:site_name" content="OA's Marker Clustering" />
+    <meta property="og:title" content="介紹說明 - OA's Marker Clustering" />
+    <meta property="og:description" content="各位Google地圖玩家都應該有過當Marker太多時，視角一拉遠後全部Marker擠在一起的困擾吧！沒錯OA'sMarkerClustering就是要來處理這個困擾！網路上也有很多關於MarkerClustering的Library，但想要比較能夠掌握概況以及視需求去做調整功能，所以刻了一套可以自訂MarkerClustering的地圖工具。" />
+    <meta property="og:url" content="http://works.ioa.tw/OA-markerClustering/about.html" />
 
     <meta property="fb:admins" content="100000100541088" />
-    <meta property="fb:app_id" content="640377126095413" />
+    <meta property="fb:app_id" content="199589883770118" />
 
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:locale:alternate" content="en_US" />
+    
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="https://www.facebook.com/comdan66" />
+    <meta property="article:publisher" content="https://www.facebook.com/comdan66" />
+    <meta property="article:modified_time" content="2016-10-04T18:38:47+08:00" />
+    <meta property="article:published_time" content="2016-10-04T18:38:47+08:00" />
 
-    <meta property="og:type" content="city" />
-    <meta property="og:image" content="" alt="" />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image" content="http://works.ioa.tw/OA-markerClustering/img/og/about.png" alt="OA's Marker Clustering" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+
+    <link rel="canonical" href="http://works.ioa.tw/OA-markerClustering/about.html" />
+    <link rel="alternate" href="http://works.ioa.tw/OA-markerClustering/about.html" hreflang="zh-Hant" />
 
     <link href="css/public.css" rel="stylesheet" type="text/css" />
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=zh-TW" language="javascript" type="text/javascript" ></script>
-    <script src="js/OAMarkerClustering.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/OAMarkerClustering/OAMarkerClustering.min.js" language="javascript" type="text/javascript" ></script>
     <script src="js/public.js" language="javascript" type="text/javascript" ></script>
     <script src="js/about.js" language="javascript" type="text/javascript" ></script>
 
@@ -63,7 +70,7 @@
         </header>
         <section>
           <p>各位 Google Maps JavaScript API 的玩家都應該有過 Marker 太多時，當 Maps 視角一拉遠時，全部 Marker 擠在一起的困擾吧！沒錯 OA's Marker Clustering 就是要來處理這個困擾！</p>
-          <p>或許你/妳會問，市面上也有很多關於 Marker Clustering 的 Library，那又何必自己時做一套呢！？原因很簡單，因為自己做的比較能夠掌握概況，是需求去做挑整，不用一大包的 code，到底怎麼跑的都摸不透，並且加以利用做出自己想要的功能！</p>
+          <p>或許你/妳會問，市面上也有很多關於 Marker Clustering 的 Library，那又何必自己時做一套呢！？原因很簡單，因為自己做的比較能夠掌握概況，視需求去做調整，不用一大包的 code，到底怎麼跑的都摸不透，並且加以利用做出自己想要的功能！</p>
           <p>如果試著 Google 關於 Marker Clustering 的文章都會找到 <a href='https://developers.google.com/maps/documentation/javascript/marker-clustering' target='_blank'>Marker Clustering</a> 此篇，而官網上也都推崇 <a href='https://github.com/googlemaps/js-marker-clusterer' target='_blank'>這套</a> Library，這套我也開發過，甚至改過其功能，但是最後我還是自己刻了屬於自己的 <a href='http://works.ioa.tw/OA-markerClustering/' target='_blank'>Marker Clustering</a> 來制定當不同的 集合 Marker 時可以使用不同呈現方式！以下就是一些功能介紹、演算方法說明。</p>
         </section>
       </article>
