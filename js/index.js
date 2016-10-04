@@ -12,11 +12,12 @@ $(function () {
 
   google.maps.event.addDomListener (window, 'load', function () {
     
-    var maps = new google.maps.Map ($('#main_maps').get (0), { zoom: 8, center: new google.maps.LatLng (23.8, 120.8), zoomControl: true, scrollwheel: true, scaleControl: true, mapTypeControl: false, navigationControl: true, streetViewControl: false, disableDoubleClickZoom: true});
+    var maps = new google.maps.Map ($('#main_maps').get (0), { zoom: 8, center: new google.maps.LatLng (23.8, 120.8)});
     maps.mapTypes.set ('map_style', new google.maps.StyledMapType ([{featureType: 'all', stylers: [{ visibility: 'on' }]}, {featureType: 'administrative', stylers: [{ visibility: 'simplified' }]}, {featureType: 'landscape', stylers: [{ visibility: 'simplified' }]}, {featureType: 'poi', stylers: [{ visibility: 'simplified' }]}, {featureType: 'road', stylers: [{ visibility: 'simplified' }]}, {featureType: 'road.arterial', stylers: [{ visibility: 'simplified' }]}, {featureType: 'transit', stylers: [{ visibility: 'simplified' }]}, {featureType: 'water', stylers: [{ color: '#b3d1ff', visibility: 'simplified' }]}, {elementType: "labels.icon", stylers:[{ visibility: 'off' }]}]));
     maps.setMapTypeId ('map_style');
 
     $showComment.addClass ('show');
+    $('#about').addClass ('show');
     
     var cluster = new OAMarkerClustering ({
       maps: maps,

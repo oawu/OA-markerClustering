@@ -13,7 +13,7 @@ $(function () {
 
 // 使用 google.maps.LatLng 為陣列元素 ========================================================================
     // 初始化地圖 1
-    var maps1 = new google.maps.Map ($('#maps1').get (0), { zoom: 8, center: new google.maps.LatLng (23.8, 120.8), zoomControl: true, scrollwheel: true, scaleControl: true, mapTypeControl: false, navigationControl: true, streetViewControl: false, disableDoubleClickZoom: true});
+    var maps1 = new google.maps.Map ($('#maps1').get (0), { zoom: 8, center: new google.maps.LatLng (23.8, 120.8)});
     maps1.mapTypes.set ('map_style', new google.maps.StyledMapType ([{featureType: 'all', stylers: [{ visibility: 'on' }]}, {featureType: 'administrative', stylers: [{ visibility: 'simplified' }]}, {featureType: 'landscape', stylers: [{ visibility: 'simplified' }]}, {featureType: 'poi', stylers: [{ visibility: 'simplified' }]}, {featureType: 'road', stylers: [{ visibility: 'simplified' }]}, {featureType: 'road.arterial', stylers: [{ visibility: 'simplified' }]}, {featureType: 'transit', stylers: [{ visibility: 'simplified' }]}, {featureType: 'water', stylers: [{ color: '#b3d1ff', visibility: 'simplified' }]}, {elementType: "labels.icon", stylers:[{ visibility: 'off' }]}]));
     maps1.setMapTypeId ('map_style');
 

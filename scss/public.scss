@@ -118,23 +118,36 @@ html {
           left: 5px;
         }
       }
-      #show_comment {
-        @include button;
+      #show_comment, #about {
         position: fixed;
-        bottom: 10px;
         left: 10px;
         z-index: 2;
         display: none;
-        @media screen and (min-width: 0) and (max-width: #{$mediaMiniMobileWidth - 1px}) {
-          bottom: 5px;
-          left: 5px;
-          padding: 4px 10px;
-          font-size: 14px;
-        } 
 
         &.show {
           display: inline-block;
         }
+        @media screen and (min-width: 0) and (max-width: #{$mediaMiniMobileWidth - 1px}) {
+          left: 5px;
+          font-size: 14px;
+          padding: 4px 10px;
+        }
+      }
+      #about {
+        @include button('orange');
+        bottom: 55px;
+        
+        @media screen and (min-width: 0) and (max-width: #{$mediaMiniMobileWidth - 1px}) {
+          bottom: 40px;
+        }
+      }
+      #show_comment {
+        @include button('red');
+        bottom: 10px;
+
+        @media screen and (min-width: 0) and (max-width: #{$mediaMiniMobileWidth - 1px}) {
+          bottom: 5px;
+        } 
       }
     }
   }
