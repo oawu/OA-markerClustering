@@ -22,7 +22,7 @@
 ![OA's Marker Clustering](img/about/02.png)
 ▲ 地圖視角 zoom 為 13 時，因為視角拉遠所以造成 A 與 B 互相太靠近。
 
-![OA's Marker Clustering](img/about/02.png)
+![OA's Marker Clustering](img/about/03.png)
 ▲ 因靠太近，故隱藏 B 只顯示 A，產生一個 集合 Marker 放置在 A 的位置，並且記錄著數量為 2。
 
 
