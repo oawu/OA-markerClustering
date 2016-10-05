@@ -113,7 +113,7 @@ function OAMarkerClustering (opts) {
           sa = southWest.lat (),
           na = northEast.lat (),
           sn = southWest.lng (),
-          nn = southWest.lng () > 0 && northEast.lng () < 0 ? 180 + Math.abs (northEast.lng ()) : northEast.lng (),
+          nn = southWest.lng () > northEast.lng () ? 180 + Math.abs (northEast.lng ()) : northEast.lng (),
           zoom = this.options.maps.zoom,
           zooms = {};
 
