@@ -34,13 +34,13 @@ Object.assign (
 
       var that = this,
           z = this.opts.map.zoom,
-          i = 0,
-          j = 0,
+          i = arr.length - 1,
+          j = arr.length - 1,
           c = arr.length;
 
       that.clean ();
 
-      for (; i < c; i++) {
+      for (; i >= 0; i--) {
         if (that.uses[i])
           continue;
 
@@ -51,7 +51,7 @@ Object.assign (
         };
         that.uses[i] = true;
 
-        for (j = i + 1; j < c; j++) {
+        for (j = i - 1; j >= 0; j--) {
           if (that.uses[j])
             continue;
 
@@ -69,7 +69,7 @@ Object.assign (
 
       var ms = [];
 
-      that.tmp.forEach (function (t, i) {
+      that.tmp.reverse ().forEach (function (t, i) {
 
         var tmp = that.opts.middle ?
           new google.maps.LatLng (t.m.map (function (u) { return u[that.opts.latKey]; }).reduce (function (a, b) { return a + b; }) / t.m.length, t.m.map (function (u) { return u[that.opts.lngKey]; }).reduce (function (a, b) { return a + b; }) / t.m.length) :
