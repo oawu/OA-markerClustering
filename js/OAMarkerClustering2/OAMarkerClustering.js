@@ -69,7 +69,7 @@ Object.assign (
 
       var ms = [];
 
-      that.tmp.reverse ().forEach (function (t, i) {
+      that.tmp.forEach (function (t, i) {
 
         var tmp = that.opts.middle ?
           new google.maps.LatLng (t.m.map (function (u) { return u[that.opts.latKey]; }).reduce (function (a, b) { return a + b; }) / t.m.length, t.m.map (function (u) { return u[that.opts.lngKey]; }).reduce (function (a, b) { return a + b; }) / t.m.length) :
